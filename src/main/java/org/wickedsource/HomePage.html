@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:wicket="http://wicket.apache.org">
+<head>
+<meta charset="utf-8" />
+<title>Apache Wicket Quickstart</title>
+<link
+	href='http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:regular,bold'
+	rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="style.css" type="text/css" media="screen"
+	title="Stylesheet" />
+</head>
+<body>
+	<div id="hd">
+		<div id="logo">
+			<img src="logo.png" width="50px" height="50px" alt="Wicket Logo" />
+			<h1>Wicket / Spring Security Integration</h1>
+		</div>
+	</div>
+	<div id="bd">
+		<h2>Accounts</h2>
+		<p>
+			Anyone can view this page, but posting to an Account requires <a
+				href="/login">login</a> and must be authorized. Below are some users
+			to try posting to Accounts with.
+		</p>
+		<ul>
+			<li>rod/koala - can post to any Account</li>
+			<li>dianne/emu - can post to Accounts as long as the balance
+				remains above the overdraft amount</li>
+			<li>scott/wombat - cannot post to any Accounts</li>
+		</ul>
+
+		<div wicket:id="feedback" />
+
+		<table>
+			<tr>
+				<th>ID</th>
+				<th>Holder</th>
+				<th>Balance</th>
+				<th>Overdraft</th>
+				<th>Operations</th>
+			</tr>
+			<tr wicket:id="accountList">
+				<td wicket:id="id" />
+				<td wicket:id="holder" />
+				<td wicket:id="balance" />
+				<td wicket:id="overdraft" />
+				<td><a wicket:id="debit20Link">-$20</a> <a
+					wicket:id="debit5Link">-$5</a> <a wicket:id="credit5Link">+$5</a> <a
+					wicket:id="credit20Link">+$20</a></td>
+			</tr>
+		</table>
+
+		<p>
+			<a href="/secure">Secure Page</a> (accessible for all authenticated
+			users)
+		</p>
+
+		<p>
+			<a href="/secure/extreme">Extreme Secure Page</a> (accessible only
+			for rod/koala)
+		</p>
+
+		<p>
+			<a wicket:id="logoutLink">Logout</a>
+		</p>
+
+	</div>
+	<div id="ft"></div>
+</body>
+</html>
